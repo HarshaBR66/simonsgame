@@ -8,7 +8,16 @@ let level=0;
 
 let h2=document.querySelector("h2");
 
-document.addEventListener("keypress", function() {
+document.getElementById("startbtn").addEventListener("click", function() {
+    if (started == false)
+    {
+        console.log("game is started ");
+        started=true;
+        levelup();
+    }
+});
+
+document.addEventListener("keydown", function() {
     if (started == false)
     {
         console.log("game is started ");
@@ -43,7 +52,7 @@ function check(idx)
         }
 
     } else{
-        h2.innerHTML=`Game over! Your Score was <b>${level} <br> Press any key to start again`;
+        h2.innerHTML=`Game over! Your Score was <b>${level} <br> Press any key to start again or the below button to Start over`;
         document.querySelector("body").style.backgroundColor ="red";
         setTimeout(function(){
             document.querySelector("body").style.backgroundColor ="white";
